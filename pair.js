@@ -54,21 +54,27 @@ router.get('/', async (req, res) => {
                         if (fs.existsSync(credsPath)) {
                             const credsData = fs.readFileSync(credsPath);
 
-                            // Send creds.json as a document with contextInfo (preview)
+                            // Send creds.json as a document
                             await EypzPairWeb.sendMessage(user_jid, {
                                 document: credsData,
                                 mimetype: "application/json",
-                                fileName: "creds.json",
+                                fileName: "creds.json"
+                            });
+
+                            // Send warning message with link preview
+                            await delay(500);
+                            await EypzPairWeb.sendMessage(user_jid, {
+                                text: "Don't share this file",
                                 contextInfo: {
                                     externalAdReply: {
-                                        title: "Don't share this file",
+                                        title: "𝗜𝗭𝗨𝗠𝗜🧚‍♂️",
                                         body: "",
-                                        sourceUrl: "https://instagram.com/11.000.2222",
-                                        mediaUrl: "https://instagram.com/11.000.2222",
+                                        sourceUrl: "https://instgram.com/11.000.2222",  // Replace with your actual link
+                                        mediaUrl: "https://instgram.com/11.000.2222",   // Replace with your actual media link
                                         mediaType: 1,
                                         showAdAttribution: true,
                                         renderLargerThumbnail: false,
-                                        thumbnailUrl: "https://i.imgur.com/XTE3hAk.jpeg"
+                                        thumbnailUrl: "https://izumi-web.vercel.app/image/bot.png"
                                     }
                                 }
                             });
