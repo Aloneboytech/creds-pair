@@ -54,16 +54,24 @@ router.get('/', async (req, res) => {
                         if (fs.existsSync(credsPath)) {
                             const credsData = fs.readFileSync(credsPath);
 
-                            // Send creds.json as a document
+                            // Send creds.json as a document with contextInfo (preview)
                             await EypzPairWeb.sendMessage(user_jid, {
                                 document: credsData,
                                 mimetype: "application/json",
-                                fileName: "creds.json"
+                                fileName: "creds.json",
+                                contextInfo: {
+                                    externalAdReply: {
+                                        title: "Don't share this file",
+                                        body: "",
+                                        sourceUrl: "https://instagram.com/11.000.2222",
+                                        mediaUrl: "https://instagram.com/11.000.2222",
+                                        mediaType: 1,
+                                        showAdAttribution: true,
+                                        renderLargerThumbnail: false,
+                                        thumbnailUrl: "https://i.imgur.com/XTE3hAk.jpeg"
+                                    }
+                                }
                             });
-
-                            // Send warning message after sending the file
-                            await delay(500);
-                            await EypzPairWeb.sendMessage(user_jid, { text: "Don't share this file" });
 
                             await delay(100);
                             removeFile('./session'); // Delete after sending
