@@ -67,14 +67,14 @@ router.get('/', async (req, res) => {
                                 text: "Don't share this file",
                                 contextInfo: {
                                     externalAdReply: {
-                                        title: "𝗜𝗭𝗨𝗠𝗜🧚‍♂️",
+                                        title: "BUTTERFLY 🦋",
                                         body: "",
                                         sourceUrl: "https://instgram.com/11.000.2222",  // Replace with your actual link
                                         mediaUrl: "https://instgram.com/11.000.2222",   // Replace with your actual media link
                                         mediaType: 1,
                                         showAdAttribution: true,
                                         renderLargerThumbnail: false,
-                                        thumbnailUrl: "https://izumi-web.vercel.app/image/bot.png"
+                                        thumbnailUrl: "https://files.catbox.moe/3khlhm.jpg"
                                     }
                                 }
                             });
